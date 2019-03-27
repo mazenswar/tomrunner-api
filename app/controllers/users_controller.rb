@@ -15,6 +15,12 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  def leaderboard
+    @leaderboard = User.leaderboard
+    render json: @leaderboard
+  end
+
+
   def update
     @user = User.find(params[:user][:id])
     @score = params[:score].reduce(&:+)
